@@ -18,7 +18,8 @@ client = OpenAI()
 
 
 app = Flask(__name__)
-CORS(app)  # Enables CORS for all routes
+CORS(app, origins=["https://diary-ai-sage.vercel.app"])
+
 
 @app.route("/memory", methods=["POST"])
 def memory():
