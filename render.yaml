@@ -3,5 +3,8 @@ services:
     name: diary-ai-backend
     env: python
     plan: free
-    buildCommand: ""
-    startCommand: "python app.py"
+    buildCommand: "pip install -r requirements.txt"
+    startCommand: "gunicorn app:app --bind 0.0.0.0:$PORT"
+    envVars:
+      - key: OPENAI_API_KEY
+        sync: false  # Set it manually in Render dashboard
